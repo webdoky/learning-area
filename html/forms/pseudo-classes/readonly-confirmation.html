@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Демо :read-only – форма підтвердження</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            margin: 20px auto;
+            max-width: 460px;
+        }
+
+        fieldset {
+            padding: 10px 30px 0;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            color: white;
+            background: black;
+            padding: 5px 10px;
+        }
+
+        fieldset>div {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button,
+        label,
+        input[type="text"],
+        textarea {
+            display: block;
+            font-family: inherit;
+            font-size: 100%;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            padding: 5px;
+            height: 30px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 50%
+        }
+
+        textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        label {
+            width: 40%;
+        }
+
+        input:hover,
+        input:focus,
+        textarea:hover,
+        textarea:focus {
+            background-color: #eee;
+        }
+
+        button {
+            width: 60%;
+            margin: 20px auto;
+        }
+
+        :is(input:read-only, input:-moz-read-only, textarea:-moz-read-only, textarea:read-only) {
+            border: 0;
+            box-shadow: none;
+            background-color: white;
+        }
+
+        :is(textarea:-moz-read-write, textarea:read-write) {
+            box-shadow: inset 1px 1px 3px #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend contenteditable="true">Перевірте деталі доставлення</legend>
+            <div>
+                <label for="name">Ім'я: </label>
+                <input id="name" name="name" type="text" value="Анастасія Шевченко" readonly>
+            </div>
+            <div>
+                <label for="address">Адреса: </label>
+                <textarea id="address" name="address" readonly>
+                    Вул. Незалежності, буд. 45, кв. 15,
+                    Івано-Франківськ
+                </textarea>
+            </div>
+            <div>
+                <label for="pcode">Поштовий індекс: </label>
+                <input id="pcode" name="pcode" type="text" value="76002" readonly>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Додаткові інструкції</legend>
+            <div>
+                <label for="sms-confirm">Надіслати підтвердження по SMS?</label>
+                <input id="sms-confirm" name="sms-confirm" type="checkbox">
+            </div>
+            <div>
+                <label for="instructions">Будь-які додаткові рекомендації?</label>
+                <textarea id="instructions" name="instructions"></textarea>
+            </div>
+        </fieldset>
+
+        <div><button type="button">Змінити деталі</button></div>
+        <div><button type="submit">Надіслати</button></div>
+    </form>
+</body>
+
+</html>
